@@ -12,10 +12,13 @@ router.get('/helloworld', function(req, res) {
 });
 
 router.post('/accept-form-submission', function(req, res, next) {
-	var firstname = {firstname: req.body.firstname};
-	var lastname = {lastname: req.body.lastname};
-	var email = {email: req.body.email};
-	request.post('https://forms.hubspot.com/uploads/form/v2/203693/293f3623-cc14-415e-87b3-70978616cdca').form(email,firstname,lastname);
+	var fields = {
+		firstname: req.body.firstname,
+		lastname: req.body.lastname,
+		email: req.body.email,
+		hs_context: req.body.hs_context
+	};
+	request.post('https://forms.hubspot.com/uploads/form/v2/203693/293f3623-cc14-415e-87b3-70978616cdca').form(fields);
     res.render('helloworld', { title: 'Hello, '+ req.body.firstname });
 });
 
