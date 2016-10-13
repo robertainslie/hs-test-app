@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(name="hubspot-form", method="post", action="/accept-form-submission")
+        div.input
+            input(type="text", name="firstname", placeholder="Enter Your Last Name!")
+        div.input
+            input(type="text", name="lastname", placeholder="Enter Your Last Name!")
+        div.input
+            input(type="text", name="email", placeholder="Enter Your Email!")
+        div.actions
+            input(type="submit", value="Submit The Form")
